@@ -15,14 +15,14 @@ using ProgressMeter
     solvePentomino(width, height, allSolutions)
 
 Computes the optimal solution of the Pentomino Farm problem in the given bounding box,
-the default 20x20 square is enough to cover all solutions. If allSolutions is true, all
-1440 different solutions are explored.
+the default 20x20 square is enough to cover all solutions (about ~350s). If allSolutions is true, all
+5760 different solutions are explored (about ~750s).
 
 # Arguments
 - `width`: width of bounding box
 - `height`: height of bounding box
 """
-function solvePentomino(width=20, height=20, allSolutions=false)
+function solvePentomino(width=20, height=20; allSolutions=false)
     model = Model(Gurobi.Optimizer)
 
     # the 12 Pentominoes as binary arrays column by column (https://en.wikipedia.org/wiki/Pentomino)
@@ -152,6 +152,18 @@ function solvePentomino(width=20, height=20, allSolutions=false)
     # break rotational symmetry by forcing z Pentomino in specific orientation
     @constraint(model, sum(z[:, :, 1, 1]) == 1)
 
+    # exclude redundant orientations of rotational symmetric Pentominoes
+    if allSolutions
+        @constraint(model, sum(z[:, :, 2, 3:8]) == 0)  # I-Pentomino: 2 axis
+        @constraint(model, sum(z[:, :, 6, 5:8]) == 0)  # T-Pentomino: 1 axis
+        @constraint(model, sum(z[:, :, 7, 5:8]) == 0)  # U-Pentomino: 1 axis
+        @constraint(model, sum(z[:, :, 8, 5:8]) == 0)  # V-Pentomino: 1 axis
+        @constraint(model, sum(z[:, :, 9, 5:8]) == 0)  # W-Pentomino: 1 axis
+        @constraint(model, sum(z[:, :, 10, 2:8]) == 0)  # X-Pentomino: 4 axis
+        @constraint(model, sum(z[:, :, 12, 3:4]) == 0)  # Z-Pentomino: Rotational symmetry
+        @constraint(model, sum(z[:, :, 12, 7:8]) == 0)
+    end
+
     optimize!(model)
 
     if !allSolutions
@@ -221,15 +233,7 @@ function printSol(n::Int64, z, width, height, pieces)  # print n-th solution
         end
     end
 
-    for i in 1 : size(output, 1)
-        for j in 1 : size(output, 2)
-            if output[i][j] != 0
-                print(output[i][j])
-            else
-                print(" ")
-            end
-        end
-    end
+    display(output)
 end
 
 
