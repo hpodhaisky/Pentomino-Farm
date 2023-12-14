@@ -9,6 +9,7 @@ Solver for the Pentomino Farm problem
 using JuMP
 using Gurobi
 using ProgressMeter
+using DelimitedFiles
 
 
 """
@@ -22,7 +23,7 @@ the default 20x20 square is enough to cover all solutions (about ~350s). If allS
 - `width`: width of bounding box
 - `height`: height of bounding box
 """
-function solvePentomino(width=20, height=20; allSolutions=false)
+function solvePentomino(width=16, height=16; allSolutions=false)
     model = Model(Gurobi.Optimizer)
 
     # the 12 Pentominoes as binary arrays column by column (https://en.wikipedia.org/wiki/Pentomino)
@@ -36,9 +37,9 @@ function solvePentomino(width=20, height=20; allSolutions=false)
     push!(pieces, [true; true;; false; true;; true; true])  # U
     push!(pieces, [true; true; true;; false; false; true;; false; false; true])  # V
     push!(pieces, [true; true; false;; false; true; true;; false; false; true])  # W
-    push!(pieces, [false; true; false;; true; true; true;; false; true; false])  # X
-    push!(pieces, [false; true; false; false;; true; true; true; true])  # Y
-    push!(pieces, [true; false; false;; true; true; true;; false; false; true])  # Z
+    #push!(pieces, [false; true; false;; true; true; true;; false; true; false])  # X
+    #push!(pieces, [false; true; false; false;; true; true; true; true])  # Y
+    #push!(pieces, [true; false; false;; true; true; true;; false; false; true])  # Z
     
     @variable(model, x[1:width, 1:height], Bin)  # if tile is interior
     @variable(model, y[1:width, 1:height], Bin)  # if tile is boundary
@@ -149,7 +150,7 @@ function solvePentomino(width=20, height=20; allSolutions=false)
     @constraint(model, sum(y[2, :]) >= 1)
     @constraint(model, sum(y[:, 2]) >= 1)
 
-    # break rotational symmetry by forcing z Pentomino in specific orientation
+    # break rotational symmetry by forcing F Pentomino in specific orientation
     @constraint(model, sum(z[:, :, 1, 1]) == 1)
 
     # exclude redundant orientations of rotational symmetric Pentominoes
@@ -170,12 +171,34 @@ function solvePentomino(width=20, height=20; allSolutions=false)
         printSol(1, z, width, height, pieces)  # print first solution
         println(Int(round(objective_value(model))))
     else
-        for i in 1 : result_count(model)  # print all solutions
-            printSol(i, z, width, height, pieces)
-        end
+        #for i in 1 : result_count(model)  # print all solutions
+        #    printSol(i, z, width, height, pieces)
+        #end
         println(Int(round(objective_value(model))))
         println()
         println("Number of solutions: " * string(result_count(model)))
+        
+        uniq = Set{Vector}()
+        push!(uniq, order(1, z, width, height, pieces))
+
+        printSol(1, z, width, height, pieces)
+
+        output = hcat(Int64(sum(round.(value.(x)))), order(1, z, width, height, pieces)')
+        @showprogress "Saving solutions to disk." for i in 1 : result_count(model)
+            try
+                ord = order(i, z, width, height, pieces)
+
+                if !(ord in uniq)
+                    output = [output; hcat(Int64(sum(round.(value.(x; result = i)))), ord')]
+                    push!(uniq, ord)
+                end
+            catch y
+                println(i)
+                printSol(i, z, width, height, pieces)
+            end
+        end
+
+        writedlm("Results/solutions-squ.csv",  output, ',')
     end
 end
 
@@ -298,5 +321,3 @@ function order(n::Int64, z, width, height, pieces)  # determine order of pieces
 
     return ord
 end
-
-# (c) Mia Muessig

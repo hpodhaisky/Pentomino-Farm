@@ -1,2 +1,3 @@
-# Pentomino-Farm
-Find all solutions of the pentomino farm problem.
+# The Pentomino Farm problem and other tesselations
+
+
