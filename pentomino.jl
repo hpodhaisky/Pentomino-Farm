@@ -37,9 +37,9 @@ function solvePentomino(width=16, height=16; allSolutions=false)
     push!(pieces, [true; true;; false; true;; true; true])  # U
     push!(pieces, [true; true; true;; false; false; true;; false; false; true])  # V
     push!(pieces, [true; true; false;; false; true; true;; false; false; true])  # W
-    #push!(pieces, [false; true; false;; true; true; true;; false; true; false])  # X
-    #push!(pieces, [false; true; false; false;; true; true; true; true])  # Y
-    #push!(pieces, [true; false; false;; true; true; true;; false; false; true])  # Z
+    push!(pieces, [false; true; false;; true; true; true;; false; true; false])  # X
+    push!(pieces, [false; true; false; false;; true; true; true; true])  # Y
+    push!(pieces, [true; false; false;; true; true; true;; false; false; true])  # Z
     
     @variable(model, x[1:width, 1:height], Bin)  # if tile is interior
     @variable(model, y[1:width, 1:height], Bin)  # if tile is boundary
