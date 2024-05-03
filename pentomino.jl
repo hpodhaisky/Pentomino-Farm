@@ -23,7 +23,7 @@ the default 20x20 square is enough to cover all solutions (about ~350s). If allS
 - `width`: width of bounding box
 - `height`: height of bounding box
 """
-function solvePentomino(width=16, height=16; allSolutions=false)
+function solvePentomino(width=20, height=20; allSolutions=false)
     model = Model(Gurobi.Optimizer)
 
     # the 12 Pentominoes as binary arrays column by column (https://en.wikipedia.org/wiki/Pentomino)
