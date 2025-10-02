@@ -197,7 +197,7 @@ function solvePentomino(width=20, height=20; allSolutions=false)
                 printSol(i, z, width, height, pieces)
             end
         end
-
+        isdir("Results") || mkdir("Results")
         writedlm("Results/solutions-squ.csv",  output, ',')
     end
 end
