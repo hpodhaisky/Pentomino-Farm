@@ -1,0 +1,46 @@
+                                        aa
+                                        aa        bb          cc
+                        BBBB    AAAAAAaaaaaaaabbbbbbbbbbccccccccccdddddd
+                        BBBBBBAAAA  AA                                ddddeeeeeeee
+                      CCBB                                            dd    ee  eeffff
+                CCCCCCCC                                                            ffff
+          DDDDDDCC                                                                    ffff
+          DD  DD                                                                        gggggg
+          DD                                                                                gg
+        EEEE                                                                                gg
+      EEEE                                                                                  gg
+      EE                                                                                    hhhhhh
+      EE                                                                                      hh
+    FFFF                                                                                      hh
+    FFFF                                                                                      hh
+    FF                                                                                        ii
+    FF                                                                                        iiii
+    GG                                                                                          ii
+  GGGG                                                                                          ii
+  GGGG                                                                                          ii
+    GG                                                                                          jj
+  HHHH                                                                                          jj
+  HH                                                                                            jj
+  HH                                                                                            jj
+  HHHH                                                                                          jj
+    II                                                                                          jj
+    II                                                                                          kk
+  IIIIII                                                                                      kkkk
+    II                                                                                        kkkk
+    JJ                                                                                        kk
+  JJJJ                                                                                        ll
+    JJ                                                                                        ll
+    JJJJ                                                                                    llllll
+      KK                                                                                    ll
+      KKKK                                                                                  nn
+        KK                                                                                  nn
+        KKKK                                                                            nnnnnn
+          LL                                                                            nn
+          LLLL                                                                          mm
+          LLLLLLMM                                                                  mmmmmm
+                MMMMMM                                                          qqqqmmmm    
+                MM  MMNN  NN                                            ooooooqqqqqq            
+                      NNNNNNxx                                      ssssoooooo  qq
+                        NN  xxxxxxxxyyyyyy      zz            ttssssss
+                              xx        yyyyyyzzzzzzzztttttttttt  ss  
+                                                  zz          
