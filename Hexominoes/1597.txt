@@ -1,0 +1,50 @@
+                                                                                                    
+                                  o       q           s                                             
+                                  o o o q q q q q s s s s u u u u       w                           
+                    l l   n n n o o                 s       u   u w w w w                           
+                    l l l n n n                                         w z z z                     
+              j j j l                                                         z z                   
+              j                                                                 z B B B             
+              j j                                                                   B B             
+        h h h h                                                                       B             
+          h                                                                           D D           
+          h                                                                             D           
+        f f                                                                             D           
+      f f                                                                               D D         
+        f f                                                                               E         
+      e e                                                                               E E E       
+      e                                                                                     E       
+      e                                                                                     E       
+      e e                                                                                   H       
+      c                                                                                     H H     
+      c                                                                                       H H   
+    c c                                                                                       H     
+    c                                                                                         I     
+    c                                                                                         I     
+    a                                                                                         I     
+    a                                                                                         I     
+  a a a                                                                                       I     
+    a                                                                                         I     
+    b                                                                                         G     
+    b                                                                                         G     
+    b                                                                                         G     
+    b                                                                                       G G     
+    b b                                                                                     G       
+      d                                                                                     F       
+      d d                                                                                   F F     
+        d                                                                                   F       
+      d d                                                                                 F F       
+        g                                                                                 C         
+        g g                                                                               C         
+          g                                                                           C C C         
+          g g                                                                         C             
+            i i                                                                       A             
+            i i                                                                   A A A             
+              i i k k                                                           y A   A             
+                    k k                                                         y                   
+                      k k m m m                                       x x y y y y                   
+                            m m m p                             v v x x x                           
+                                  p p p p r r r r r t t t t v v v v   x                             
+                                    p         r       t t                                           
+                                                                                                    
+
