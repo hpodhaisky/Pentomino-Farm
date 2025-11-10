@@ -1,7 +1,7 @@
 """
 This code solves the max fence problem for various polyminoes configuration.
 It is based on <https://github.com/PhoenixSmaug/Pentomino-Farm/blob/main/pentomino.jl>. 
-It also uses local adaptivity, stochastic heuristic and the reduction a reduction to l-shapes.
+It also uses local adaptivity, a stochastic heuristic and a reduction to L shapes.
 
 See `tetro.jl`, `pento.jl`, `hexo.jl` and `proof1597.jl` how it can be used. 
 
