@@ -446,7 +446,7 @@ end
 
 """
 DFS to find an order in the board. If the pieces are already
-on a ring, that will be detected an returned.
+on a ring, that will be detected and returned.
 """
 function findchain(board::Board)::Vector{Polymino}
     queue = copy(board.pieces)
@@ -470,8 +470,7 @@ end
 
 """
 Random processes that relaxes parts
-of the current board and optimises only
-there.    
+of the current board and optimises only there.    
 """
 function stochopt(
     board;
