@@ -15,4 +15,4 @@ Here we present a Julia implementation for solving this problem using an ILP app
 ## License
 This project is licensed under the MIT License - see LICENSE file for details. If you use this code for academic purposes, please cite the paper:
 
-[To be added]
+Langlois-Rémillard, Alexis, Müßig, Mia N. and Roldán, Érika. **Maximale Zäune mit Polyformen**, Mitteilungen der Deutschen Mathematiker-Vereinigung, vol. 33, no. 3, 2025, pp. 187-199. https://doi.org/10.1515/dmvm-2025-0056
