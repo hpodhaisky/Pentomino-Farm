@@ -23,6 +23,6 @@ relaxation. Formally:
     domain.
 
 By enumerating and investigating all other possible L-shape reductions
-(in total 30), this procedure establishes that 1597 is optimal for the max-fence
+(9 in total), this procedure establishes that 1597 is optimal for the max-fence
 hexomino problem.
 """
