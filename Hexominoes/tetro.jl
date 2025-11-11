@@ -4,6 +4,7 @@ using .Polyminoes
 pieces = generate(4)
 omega = square_dom(7)
 board = optim(pieces, omega; highs=true)
+print(board)
 
 """
 
